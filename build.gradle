@@ -39,10 +39,5 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-liquibase {
-	activities {
-		main {
-			propertyFile "db/liquibase.properties"
-		}
-	}
-}
+
+
