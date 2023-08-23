@@ -26,12 +26,18 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.liquibase:liquibase-core'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation group: 'org.springframework', name: 'spring-orm', version: '6.0.11'
+	implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.6.11.Final'
+	implementation group: 'jakarta.xml.bind', name: 'jakarta.xml.bind-api', version: '3.0.1'
+	implementation group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '3.1.0-M1'
+	implementation group: 'org.javassist', name: 'javassist', version: '3.28.0-GA'
+
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation group: 'org.hibernate', name: 'hibernate-core', version: '6.2.7.Final', ext: 'pom'
+
 
 }
 
