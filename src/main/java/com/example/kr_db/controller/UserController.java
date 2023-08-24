@@ -3,9 +3,7 @@ package com.example.kr_db.controller;
 import com.example.kr_db.model.User;
 import com.example.kr_db.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +15,12 @@ public class UserController {
 
     @GetMapping("/findAll")
     public List<User> findAll() {
+
         return userService.findAll();
+    }
+
+    @PostMapping("/create")
+    public User create(@RequestBody User user) {
+        return userService.create(user);
     }
 }
