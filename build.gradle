@@ -20,18 +20,26 @@ configurations {
 }
 
 repositories {
-	mavenCentral()
+	maven { url "https://plugins.gradle.org/m2/" }
+	gradlePluginPortal()
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.liquibase:liquibase-core'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
+	implementation'org.postgresql:postgresql:42.6.0'
+	implementation 'org.hibernate:hibernate-core:5.6.15.Final'
+
+	implementation 'org.javassist:javassist:3.23.1-GA'
+	implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.2'
+	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.2'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation group: 'org.hibernate', name: 'hibernate-core', version: '6.2.7.Final', ext: 'pom'
+
 
 }
 
