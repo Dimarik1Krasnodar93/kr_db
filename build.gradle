@@ -50,7 +50,7 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-def file = new File(System.getProperty("user.dir") + "/db/liquibase.properties")
+def file = new File(System.getProperty("user.dir") + "/.env")
 def reader = new BufferedReader(new FileReader(file));
 def map = new HashMap<String, String>();
 try {
@@ -65,9 +65,9 @@ liquibase {
 	activities {
 		main {
 			changeLogFile "/db/master.xml"
-			url map.get("url")
-			username map.get("username")
-			password map.get("password")
+			url map.get("LOCAL_POSTGRES_URL")
+			username map.get("LOCAL_POSTGRES_USER")
+			password map.get("LOCAL_POSTGRES_PASSWORD")
 		}
 	}
 }
