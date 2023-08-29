@@ -28,28 +28,31 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
 	liquibaseRuntime 'org.liquibase:liquibase-core:4.23.1'
 	liquibaseRuntime 'org.liquibase:liquibase-groovy-dsl:2.1.1'
+	liquibaseRuntime 'org.postgresql:postgresql'
+	liquibaseRuntime 'info.picocli:picocli:4.6.3'
+
 	implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
 	implementation'org.postgresql:postgresql:42.6.0'
 	implementation 'org.hibernate:hibernate-core:5.6.15.Final'
 	implementation 'org.javassist:javassist:3.23.1-GA'
 	implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.2'
 	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.2'
-	liquibaseRuntime 'info.picocli:picocli:4.6.3'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
-	liquibaseRuntime 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 }
 apply plugin: 'org.liquibase.gradle'
-
 tasks.named('test') {
 	useJUnitPlatform()
 }
 
+def baseName = "kr_db"
 def file = new File(System.getProperty("user.dir") + "/.env")
 def reader = new BufferedReader(new FileReader(file));
 def map = new HashMap<String, String>();
@@ -70,4 +73,9 @@ liquibase {
 			password map.get("LOCAL_POSTGRES_PASSWORD")
 		}
 	}
+}
+
+jar {
+	baseName = 'kr_kb'
+	version =  '0.1.0'
 }
