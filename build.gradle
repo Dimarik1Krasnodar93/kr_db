@@ -61,13 +61,20 @@ try {
 	reader.close()
 }
 
+task hello {
+	doLast {
+		println 'hello, world'
+	}
+}
+
+
 liquibase {
 	activities {
 		main {
 			changeLogFile "/db/master.xml"
 			url map.get("LOCAL_POSTGRES_URL")
-			username map.get("LOCAL_POSTGRES_USER")
-			password map.get("LOCAL_POSTGRES_PASSWORD")
+			username map.get("POSTGRES_USER")
+			password map.get("POSTGRES_PASSWORD")
 		}
 	}
 }
