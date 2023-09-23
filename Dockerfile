@@ -1,8 +1,8 @@
 # Указываем базовый образ, который содержит Java
-FROM openjdk:11-jre-slim as gradle
+FROM gradle:latest as gradle
 
 # Создаем рабочую директорию внутри контейнера
-WORKDIR app_db
+WORKDIR /app_db
 
 # Копируем JAR-файл вашего проекта в контейнер
 COPY . .
