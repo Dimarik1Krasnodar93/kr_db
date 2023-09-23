@@ -13,8 +13,6 @@ services:
       - "SERVER_PORT=8080"
     expose:
       - "8081"
-    depends_on:
-      - nginx_db
     restart: always
     networks:
       - app-network
