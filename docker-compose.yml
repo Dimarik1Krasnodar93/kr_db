@@ -15,7 +15,7 @@ services:
       - "8081"
     depends_on:
       - nginx_db
-    restart: no
+    restart: always
     networks:
       - app-network
 
