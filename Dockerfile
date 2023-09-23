@@ -8,7 +8,7 @@ WORKDIR app_db
 COPY . .
 
 # Указываем порт, на котором будет работать приложение
-EXPOSE 8080
+RUN gradle build
 
 FROM openjdk:17.0.2-jdk
 WORKDIR app_db

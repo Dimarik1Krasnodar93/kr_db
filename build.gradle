@@ -9,7 +9,13 @@ plugins {
 }
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'com.example.kr_db.KrDbApplication'
+	}
+}
 
 java {
 	sourceCompatibility = '17'
